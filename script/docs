@@ -17,11 +17,18 @@ do
   case "$1" in
     --open) open="1"
       ;;
+    --test) test_env="1"
+      ;;
     *) options+=("$1")
       ;;
   esac
   shift
 done
+
+if [ -n "$test_env" ]; then
+  echo "==> Include test helper modules in documentation..."
+  export MIX_ENV="test"
+fi
 
 script/bootstrap
 

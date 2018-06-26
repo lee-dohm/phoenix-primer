@@ -18,9 +18,7 @@ defmodule Primer.MixProject do
       preferred_cli_env: [
         coveralls: :test,
         "coveralls.html": :test,
-        "coveralls.travis": :test,
-        credo: :test,
-        docs: :test
+        "coveralls.travis": :test
       ],
       build_embedded: Mix.env() == :prod,
       start_permanent: Mix.env() == :prod
@@ -39,9 +37,9 @@ defmodule Primer.MixProject do
     [
       {:phoenix_html, "~> 2.11"},
       {:phoenix_octicons, "~> 0.3.0"},
-      {:cmark, "~> 0.7", only: [:test], runtime: false},
-      {:credo, "~> 0.9.2", only: [:test], runtime: false},
-      {:ex_doc, "~> 0.16", only: [:test], runtime: false},
+      {:cmark, "~> 0.7", only: [:dev, :test], runtime: false},
+      {:credo, "~> 0.9.2", only: [:dev, :test], runtime: false},
+      {:ex_doc, "~> 0.16", only: [:dev, :test], runtime: false},
       {:excoveralls, "~> 0.6", only: :test},
       {:floki, "~> 0.20", only: [:dev, :test]},
       {:version_tasks, "~> 0.10", only: :dev}
