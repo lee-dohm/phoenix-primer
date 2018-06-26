@@ -36,6 +36,7 @@ defmodule Primer.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
+      {:phoenix_html, "~> 2.11"},
       {:cmark, "~> 0.7", only: [:test], runtime: false},
       {:credo, "~> 0.9.2", only: [:test], runtime: false},
       {:ex_doc, "~> 0.16", only: [:test], runtime: false},
