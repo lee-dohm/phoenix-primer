@@ -17,7 +17,9 @@ defmodule Primer.AvatarsTest do
 
     assert find(image, "img.avatar")
     assert attribute(image, "alt") == [context.user.name]
+    assert attribute(image, "height") == []
     assert hd(attribute(image, "src")) =~ context.user.avatar_url
+    assert attribute(image, "width") == []
   end
 
   test "renders correctly with size option", context do
@@ -28,9 +30,9 @@ defmodule Primer.AvatarsTest do
 
     assert find(image, "img.avatar")
     assert attribute(image, "alt") == [context.user.name]
-    assert attribute(image, "width") == ["60"]
     assert attribute(image, "height") == ["60"]
     assert hd(attribute(image, "src")) =~ context.user.avatar_url
+    assert attribute(image, "width") == ["60"]
   end
 
   test "passes other options through to the underlying HTML element", context do

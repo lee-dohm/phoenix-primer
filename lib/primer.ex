@@ -41,6 +41,9 @@ defmodule Primer do
   * `github_link/2`
   """
 
+  @typedoc """
+  A generic user record.
+  """
   @type user :: %{user: binary, avatar_url: binary}
 
   @doc false
