@@ -35,6 +35,9 @@ defmodule Primer do
   def append_class(base, ""), do: base
   def append_class(base, class) when is_binary(class), do: base <> " " <> class
 
+  def append_class(base, classes) when is_list(classes),
+    do: append_class(base, Enum.join(classes, " "))
+
   @doc false
   def append_query(url, options) do
     map = Enum.into(options, %{})
