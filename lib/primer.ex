@@ -6,45 +6,29 @@ defmodule Primer do
   All functions can be used either within a template or composed together in code. Each function
   should always emit `t:Phoenix.HTML.safe/0` objects or throw an exception.
 
-  ## Primer components
+  The simplest way to use this library is to add the following to your Phoenix view template:
 
-  ### Avatars
+  ```
+  use Primer
+  ```
 
-  Functions for displaying
-  [avatar elements](https://github.com/primer/primer/tree/master/modules/primer-avatars).
-
-  * `avatar/2`
-
-  ### Labels
-
-  Functions for displaying
-  [label elements](https://github.com/primer/primer/tree/master/modules/primer-labels).
-
-  * `counter/1`
-
-  ### Navigation
-
-  Functions for displaying
-  [navigation elements](https://github.com/primer/primer/tree/master/modules/primer-navigation).
-
-  * `menu/1`
-  * `menu_item/3`
-  * `underline_nav/2`
-  * `underline_nav_item/3`
-
-  ## Standard GitHub-style features
-
-  These are functions for adding features that are typically present on GitHub-authored web
-  properties that aren't part of the Primer CSS framework.
-
-  * `code_with_heart/3`
-  * `github_link/2`
+  Or, if you only want to include the parts you use, you can import functions individually from the
+  various modules.
   """
 
   @typedoc """
   A generic user record.
   """
   @type user :: %{user: binary, avatar_url: binary}
+
+  defmacro __using__(_options) do
+    quote do
+      import Primer.Avatars
+      import Primer.Elements
+      import Primer.Labels
+      import Primer.Navigation
+    end
+  end
 
   @doc false
   def append_class(base, nil), do: base
