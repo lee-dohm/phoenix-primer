@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# script/clean: Delete all build artifacts.
+
+set -e
+cd "$(dirname "$0")/.."
+
+mix clean
+rm -rf bin
+rm -rf deps
+rm -rf doc
