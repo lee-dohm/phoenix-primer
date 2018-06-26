@@ -5,6 +5,11 @@ defmodule Primer.Avatars do
   """
   use Phoenix.HTML
 
+  @typedoc """
+  A generic user record.
+  """
+  @type user :: %{user: binary, avatar_url: binary}
+
   @doc """
   Renders the `avatar` element for the `user`.
 
@@ -12,7 +17,7 @@ defmodule Primer.Avatars do
 
   * `:size` - value in pixels to use for both the width and height of the avatar image
   """
-  @spec avatar(Primer.user(), Keword.t()) :: Phoenix.HTML.safe()
+  @spec avatar(user, Keword.t()) :: Phoenix.HTML.safe()
   def avatar(user, options \\ [])
 
   def avatar(user, options) do

@@ -16,11 +16,6 @@ defmodule Primer do
   various modules.
   """
 
-  @typedoc """
-  A generic user record.
-  """
-  @type user :: %{user: binary, avatar_url: binary}
-
   defmacro __using__(_options) do
     quote do
       import Primer.Avatars
