@@ -5,6 +5,8 @@ defmodule Primer.Avatars do
   """
   use Phoenix.HTML
 
+  alias Primer.Utility
+
   @typedoc """
   A generic user record.
   """
@@ -23,7 +25,7 @@ defmodule Primer.Avatars do
   def avatar(user, options) do
     size = options[:size]
 
-    class = Primer.append_class("avatar", options[:class])
+    class = Utility.append_class("avatar", options[:class])
     src = add_size_to_url(user.avatar_url, size)
 
     tag_options =
@@ -39,5 +41,5 @@ defmodule Primer.Avatars do
   end
 
   defp add_size_to_url(url, nil), do: url
-  defp add_size_to_url(url, size), do: Primer.append_query(url, s: size)
+  defp add_size_to_url(url, size), do: Utility.append_query(url, s: size)
 end

@@ -6,6 +6,7 @@ defmodule Primer.Navigation do
   use Phoenix.HTML
 
   alias Primer.Labels
+  alias Primer.Utility
 
   @doc """
   Renders a menu element.
@@ -54,8 +55,8 @@ defmodule Primer.Navigation do
 
     class =
       "menu-item"
-      |> Primer.append_class(options[:class])
-      |> Primer.append_class(if selected, do: "selected", else: nil)
+      |> Utility.append_class(options[:class])
+      |> Utility.append_class(if selected, do: "selected", else: nil)
 
     tag_options =
       options
@@ -112,7 +113,7 @@ defmodule Primer.Navigation do
   def underline_nav(options \\ [], block)
 
   def underline_nav(options, do: block) do
-    class = Primer.append_class("UnderlineNav", options[:class])
+    class = Utility.append_class("UnderlineNav", options[:class])
 
     content_tag(:nav, class: class) do
       content_tag(:div, block, class: "UnderlineNav-body")
@@ -136,8 +137,8 @@ defmodule Primer.Navigation do
 
     class =
       "UnderlineNav-item"
-      |> Primer.append_class(options[:class])
-      |> Primer.append_class(if selected, do: "selected", else: nil)
+      |> Utility.append_class(options[:class])
+      |> Utility.append_class(if selected, do: "selected", else: nil)
 
     tag_options =
       options
