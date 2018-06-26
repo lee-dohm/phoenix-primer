@@ -15,12 +15,13 @@ defmodule Primer.Navigation do
 
   ## Example
 
-  Slime template:
+  EEx template:
 
   ```
-  = menu do
-    = menu_item("Foo", "/path/to/foo", selected: true)
-    = menu_item("Bar", "/path/to/bar")
+  <%= menu do %>
+    <%= menu_item("Foo", "/path/to/foo", selected: true) %>
+    <%= menu_item("Bar", "/path/to/bar") %>
+  <% end %>
   ```
 
   generates:
@@ -90,12 +91,13 @@ defmodule Primer.Navigation do
 
   ## Example
 
-  Slime template:
+  EEx template:
 
   ```
-  = underline_nav do
-    = underline_nav_item "Foo", "/path/to/foo", selected: true
-    = underline_nav_item "Bar", "/path/to/bar"
+  <%= underline_nav do %>
+    <%= underline_nav_item "Foo", "/path/to/foo", selected: true %>
+    <%= underline_nav_item "Bar", "/path/to/bar" %>
+  <% end %>
   ```
 
   generates:
